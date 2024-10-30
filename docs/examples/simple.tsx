@@ -352,6 +352,12 @@ class Test extends React.Component<any, TestState> {
           <Trigger
             getPopupContainer={getPopupContainer}
             popupAlign={this.getPopupAlign()}
+            onPopupAlign={(e, a) => {
+              const p = Object.keys(builtinPlacements).find(key => {
+                return builtinPlacements[key].points[0] === a.points[0] && builtinPlacements[key].points[1] === a.points[1]
+              })
+              console.log('p', p)
+            }}
             popupPlacement={state.placement}
             destroyPopupOnHide={this.state.destroyPopupOnHide}
             autoDestroy={this.state.autoDestroy}
